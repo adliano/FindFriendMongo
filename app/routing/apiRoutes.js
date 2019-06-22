@@ -8,6 +8,19 @@
  */
 
 let friends = require('../data/friends')
+// Require Mongojs
+let mongojs = require('mongojs')
+// Mongo database config
+let databaseURL = 'friends'
+let collections = 'users'
+// Init Mong db with congiguration
+let db = mongojs(databaseURL, collections)
+
+// On Error event listener
+db.on('error', (error) => {
+  console.log('⚠️ ☣️ ☢️'.repeat(10))
+  console.error(error)
+})
 
 /**************************************
  * Method findMatch()
