@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Friends Finder</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <!-- Material Icons -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+  </head>
+  <!-- ---------------------------- -->
+  <!-- ------------ BODY ---------- -->
+  <!-- ---------------------------- -->
+  <body class="bg-light">
+    <!-- ---- _Container ---- -->
+    <div class="container bg-secondary  mt-3 py-3">
+      <!-- -- Jumbotron -- -->
+      <div class="jumbotron">
+        <h1 class="display-3 text-center">Survey Questions</h1>
+        <p class="lead text-center">
+          Answer the question to help us find you a friend
+        </p>
+        <hr class="my-2" />
+      </div>
+      <!-- :: end of Jumbotron :: -->
+
+      <!-- ---- Card About you ---- -->
+      <div class="card">
+        <!-- Card Header -->
+        <div class="card-header">
+          <h2 class="card-title">About You</h2>
+        </div>
+        <!-- Card Body -->
+        <div class="card-body">
+          <!-- ---- Form ---- -->
+          <div class="form-group">
+            <!-- Get user name -->
+            <label for="name"
+              ><i class="material-icons mr-2">perm_identity</i> Name</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              name="usrName"
+              id="usrName"
+              aria-describedby="helpId"
+            />
+            <!-- Get link for user picture -->
+            <label for="image"
+              ><i class="material-icons mt-2 mr-2">add_a_photo</i> Link to Photo
+              Image (Required)</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              name="usrPicture"
+              id="usrPicture"
+              aria-describedby="helpId"
+            />
+          </div>
+        </div>
+      </div>
+      <!-- :: End of Card :: -->
+
+      <!-- ---- Card Questions ---- -->
+      <div class="card mt-4">
+        <!-- Card Header -->
+        <div class="card-header">
+          <h2 class="card-title">Questions</h2>
+        </div>
+        <div id="surveyQUestions" class="card-body">
+          <div class="form-group">
+            <!-- --------------------------------------------- -->
+            <!-- Script used to load selectors dynamically     -->
+            <!-- The Script will load 10 questions dynamically -->
+            <!-- --------------------------------------------- -->
+          </div>
+          <!-- :: end form :: -->
+        </div>
+        <!-- :: end card-body :: -->
+      </div>
+      <!-- :: end card :: -->
+
+      <!-- --- Submit Button --- -->
+      <div class="text-center my-5">
+        <button id="submitButton" class="mdc-button mdc-button--raised w-75">
+          <h3>
+            <i class="material-icons text-success">done_outline</i>
+            Submit
+          </h3>
+        </button>
+      </div>
+    </div>
+    <!-- :: end _container -->
+    <!-- ------------------------------------- -->
+    <!--     MODAL TO DISPLAY USER MATCHED     -->
+    <!-- ------------------------------------- -->
+    <div
+      class="modal fade"
+      id="modalShowMatched"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="modelTitleId"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Best Match</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="container text-center" id="setUserInfo">
+              <!-- Mached User Name and Picture will be dispalyed here -->
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- :: END OF MODAL :: -->
+    <!-- -------------------- -->
+    <!--      DIE Modal       -->
+    <!-- -------------------- -->
+    <div class="modal" id="dieModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">
+              <i class="material-icons mr-2 text-warning">warning</i>
+              Missing Fields
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div id="dieModalBody" class="modal-body text-danger">
+            <p>Check for missing fields</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-info" data-dismiss="modal">
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- :: end of die modal :: -->
+  </body>
+  <!-- -------------------------- -->
+  <!--            Footer          -->
+  <!-- -------------------------- -->
+  <footer class="footer my-2 mx-0">
+    <div class="container">
+      <a href="/api/friends">API Friends List</a> |
+      <a href="https://github.com/adliano/FriendFinder">Github Repo</a>
+    </div>
+  </footer>
+</html>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script
+  src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  crossorigin="anonymous"
+></script>
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+  integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+  crossorigin="anonymous"
+></script>
+<script
+  src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+  integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+  crossorigin="anonymous"
+></script>
+<!-- ******************************************************* -->
+<!-- ******************* Javsscript  *********************** -->
+<!-- ******************************************************* -->
+<script type="text/javascript">
+  let questions = [
+    "Your mind is always buzzing with unexplored ideas and plans.",
+    "Generally speaking, you rely more on your experience than your imagination.",
+    "You find it easy to stay relaxed and focused even when there is some pressure.",
+    "You rarely do something just out of sheer curiosity.",
+    "People can rarely upset you.",
+    "It is often difficult for you to relate to other people’s feelings.",
+    "In a discussion, truth should be more important than people’s sensitivities.",
+    "You rarely get carried away by fantasies and ideas.",
+    "You think that everyone’s views should be respected regardless of whether they are supported by facts or not.",
+    "You feel more energetic after spending time with a group of people."
+  ];
+  /***************************
+   *
+   * loadQuestions()
+   *
+   ****************************/
+  // Funcion to load questions on Document
+  function loadQuestions() {
+    let _container = document.querySelector("#surveyQUestions");
+    //Loopr through questions array and create a selecty for each question
+    for (let i = 0; i < questions.length; i++) {
+      let _question = `<div class="my-4">
+        <h4>Question ${i + 1}</h4>
+        <label for="question${i + 1}">${questions[i]}</label>
+        <select
+        class="form-control"
+        name="question${i + 1}"
+        id="question${i + 1}">
+        <option value="" selected="selected" hidden="hidden">Select an Option</option>
+        <option value="1">1 (Strongly Disagree)</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5 (Strongly Agree)</option>
+        </select>
+    </div>`;
+
+      _container.insertAdjacentHTML("beforeend", _question);
+    }
+  }
+
+  // call the loadQuestions()
+  loadQuestions();
+
+  /***************************
+   *
+   * clearData()
+   *
+   ****************************/
+  function clearData() {
+    document.querySelector("#surveyQUestions").innerHTML = "";
+    let _inputs = document.querySelectorAll("input");
+    for (let element of _inputs) {
+      element.value = "";
+    }
+    loadQuestions();
+  }
+
+  /***************************
+   *
+   *  onButoonClick()
+   *
+   ****************************/
+  // Function to use on Event listener (callback)
+  function onButoonClick(event) {
+    // Check if user enter name and link for picture
+    if (
+      !document.querySelector("#usrName").value ||
+      !document.querySelector("#usrPicture").value
+    ) {
+      $("#dieModal").modal("show");
+      return;
+    }
+    // Array to hold scores
+    let _scores = [];
+    // Get all <select> and place into an Array
+    let _selectors = document.querySelectorAll("select");
+    // Loop through Array of <select>
+    for (let _select of _selectors) {
+      let _data = _select.value;
+      // Check for any data missing
+      if (_data) {
+        // Get data from each <select> and push to _scores array
+        _scores.push(parseInt(_data));
+      }
+      // If user didn't enter all scores, display error modal
+      else {
+        $("#dieModal").modal("show");
+        return;
+      }
+    }
+    // Save all user data into a JSON
+    let _userData = {
+      name: document.querySelector("#usrName").value.trim(),
+      picture: document.querySelector("#usrPicture").value.trim(),
+      score: _scores
+    };
+    // Send post request (fetch) to server
+    fetch("/api/friends", {
+      method: "POST",
+      body: JSON.stringify(_userData),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+      .then(res => res.json())
+      .then(data => {
+        clearData();
+        console.log(data);
+        // Create element to show user name and picture on modal
+        let _element = `<h2>${data.name}</h2>
+        <img src="${data.picture}" alt="" height="320" width="320"/>`;
+        // Get Parent element
+        let _parent = document.querySelector("#setUserInfo");
+        // Add match info to element
+        _parent.insertAdjacentHTML("beforeend", _element);
+        // Show MModal with match info
+        $("#modalShowMatched").modal("show");
+      });
+  }
+  /***************************
+   *
+   * Event Listners
+   *
+   ****************************/
+  // Add event listener to submit button
+  document
+    .querySelector("#submitButton")
+    .addEventListener("click", onButoonClick);
+
+  // Event to clear modal data after user colse it
+  $("#modalShowMatched").on("hidden.bs.modal", function(event) {
+    // Get Parent element
+    let _parent = document.querySelector("#setUserInfo");
+    // clear elements inside parent
+    _parent.innerHTML = "";
+  });
+</script>

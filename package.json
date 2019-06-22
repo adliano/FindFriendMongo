@@ -1,0 +1,24 @@
+{
+  "name": "tech.alves.friendfinder",
+  "version": "1.0.0",
+  "description": "Dating Application to find your best match",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adliano/FriendFinder.git"
+  },
+  "author": "Adriano Alves",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adliano/FriendFinder/issues"
+  },
+  "homepage": "https://github.com/adliano/FriendFinder#readme",
+  "dependencies": {
+    "express": "^4.17.0",
+    "nodemon": "^1.19.0"
+  }
+}
