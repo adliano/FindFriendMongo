@@ -4,3 +4,4 @@ node_modules
 sandbox.js
 sandbox.html
 package-lock.json
+.env
