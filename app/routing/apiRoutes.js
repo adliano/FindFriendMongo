@@ -8,12 +8,13 @@
  */
 // Using npm dotenv
 require('dotenv').config()
+
 // Require Mongojs
 let mongojs = require('mongojs')
 // Mongo database config
 // MONGODB_URI available at Heroku -> settings -> Config Vars
 // Or run command on terminal `heroku config -a thefindfriends`
-// Locally this info its saved on .env file
+// Locally this info its saved on .env file as 'friends'
 let databaseURL = process.env.MONGODB_URI
 // Mongo collection(s) (like as "Tables" in SQL)
 let collections = ['users']
