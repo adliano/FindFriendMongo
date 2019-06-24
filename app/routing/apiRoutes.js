@@ -6,10 +6,15 @@
  * This will be used to handle incoming survey results.
  * This route will also be used to handle the compatibility logic.
  */
+// Using npm dotenv
+require('dotenv')
 // Require Mongojs
 let mongojs = require('mongojs')
 // Mongo database config
-let databaseURL = 'heroku_6x4pf1q7'
+// MONGODB_URI available at Heroku -> settings -> Config Vars
+// Or run command on terminal `heroku config -a thefindfriends`
+// Locally this info its saved on .env file
+let databaseURL = process.env.MONGODB_URI
 // Mongo collection(s) (like as "Tables" in SQL)
 let collections = ['users']
 // Init Mong db with congiguration
