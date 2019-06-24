@@ -7,7 +7,7 @@
  * This route will also be used to handle the compatibility logic.
  */
 // Using npm dotenv
-require('dotenv')
+require('dotenv').config()
 // Require Mongojs
 let mongojs = require('mongojs')
 // Mongo database config
