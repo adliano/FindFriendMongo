@@ -9,7 +9,7 @@
 // Require Mongojs
 let mongojs = require('mongojs')
 // Mongo database config
-let databaseURL = 'friends'
+let databaseURL = 'heroku_6x4pf1q7'
 // Mongo collection(s) (like as "Tables" in SQL)
 let collections = ['users']
 // Init Mong db with congiguration
