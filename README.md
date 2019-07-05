@@ -1,8 +1,8 @@
-# :heart: **FriendFinder** :heart:
+# :heart: **FindFriendMongo** :heart:
 
 <hr>
 
-### FriendFinder
+### FindFriendMongo
 
 Deployed at [Heroku](https://pure-journey-74952.herokuapp.com/)
 
